@@ -6,14 +6,18 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="favicon-js.ico">
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
     <header>
         <h1>Recherche de musiques</h1>
 
-        <p id="explication">Cette page permet de rechercher des offres d'emploi via l'API publique de <a href="https://www.indeed.fr/" target="_blank">indeed.fr</a>.<br> Saisir le nom d'une ville, d'un poste, ... pour rechercher les postes correspondants, et enregistrer
-            vos recherches favorites pour les retrouver facilement.</p>
+        <p id="explication">Cette page permet de rechercher des artistes, des titres ou encore des albums via l'API de <a href="https://docs.genius.com/" target="_blank">genius.com</a>.
+            <br> Saisir le nom d'un artiste, d'un groupe, le titre d'une musique, ... pour rechercher les informations correspondantes, et enregistrer vos recherches favorites pour les retrouver facilement.</p>
     </header>
     <hr>
 
@@ -27,12 +31,12 @@
                 <!-- Boutons -->
                 <button id="btn-lancer-recherche" type="button" class="btn_clicable" title="Lancer la recherche">
 						<!-- Icone provenant de flaticon.com -->
-						<img src="images/loupe.svg" alt="Loupe pour recherche" width=22 >
+						<img src="images/loupe.svg" id="loupe" alt="Loupe pour recherche" width=22 >
 					</button>
 
                 <button id="btn-favoris" type="button" disabled title="Ajouter la recherche aux favoris">
 						<!-- Icone étoile vide => Recherche pas en favoris -->
-						<img src="images/etoile-vide.svg" alt="Etoile vide" width=22 >
+						<img src="images/etoile-vide.svg" id="etoile" alt="Etoile vide" width=22 >
 
 						<!-- Icone étoile pleine => Recherche en favoris -->
 						<!-- <img src="images/etoile-pleine.svg" alt="Etoile pleine" width=22 > -->
