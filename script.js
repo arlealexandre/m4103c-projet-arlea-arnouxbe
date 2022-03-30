@@ -9,3 +9,14 @@ $("#btn-lancer-recherche").click(function() {
         console.log(data);
     });
 });
+
+
+
+
+
+
+// --------- ajout de la recherche au local storage
+$("#btn-favoris").click(function(){
+    var tmp = $("#recherche").val();
+    localStorage.setItem(tmp,tmp);
+});
