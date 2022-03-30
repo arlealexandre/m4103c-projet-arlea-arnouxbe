@@ -1,9 +1,12 @@
+/* VARIABLES GLOBALES */
 var access_token = "nrATt8FULnDxKQz-oEbmRxBAM1KG6KirdwXo9yuqDYL6_-07wXaRtQZj1W6WLRSa";
 
-var search = "PNL";
-
 $("#btn-lancer-recherche").click(function() {
-    alert("Requête lancée");
+
+    /* Recherche */
+    var search = $("#recherche").val().replace(/ /g, "%20");
+
+    /* Requête */
     $.get("https://api.genius.com/search?q=" + search + "&access_token=" + access_token, function(data, status) {
         alert("Data: " + data + "\nStatus: " + status);
         console.log(data);
