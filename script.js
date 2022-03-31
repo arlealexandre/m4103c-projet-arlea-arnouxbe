@@ -20,10 +20,10 @@ var nb_resultats = $("#nb_resultats");
 
 function recherche() {
 
-    /* Les espaces sont remplacés par '%20' pour la requete */
+    // Les espaces sont remplacés par '%20' pour la requete
     var search = $("#recherche").val().replace(/ /g, "%20");
 
-    /* On efface le contenu des div dont le contenu change en fonction du résultat d'une requête */
+    // On efface le contenu des div dont le contenu change en fonction du résultat d'une requête
     bloc_resultats.empty();
     nb_resultats.empty();
 
@@ -33,9 +33,9 @@ function recherche() {
         var resultats = data.response.hits;
         var nb_resultats_req = resultats.length;
 
-        if (nb_resultats_req == 0) { /* Si aucun résultat trouvé */
+        if (nb_resultats_req == 0) { // Si aucun résultat trouvé
             nb_resultats.append("<p>( &empty; Aucun résultat trouvé )</p>")
-        } else { /* Sinon */
+        } else { // Sinon
             nb_resultats.append("<p>" + nb_resultats_req + " résultat(s) trouvé(s)</p>")
 
             resultats.forEach(resultat => {
