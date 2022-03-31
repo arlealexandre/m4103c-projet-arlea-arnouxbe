@@ -24,6 +24,7 @@
         width: 90%;
         margin: 40px auto;
         font-family: 'Righteous', cursive;
+        overflow: scroll;
     }
     /* Paragraphes "Aucun résultat..." et "Aucune recherche..." */
     
@@ -90,6 +91,10 @@
     
     #btn-favoris {
         border-radius: 0 50px 50px 0;
+    }
+    
+    #nb_resultats {
+        float: inline-end;
     }
     
     #etoile,
