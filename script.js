@@ -39,7 +39,20 @@ function recherche() {
             nb_resultats.append("<p>" + nb_resultats_req + " résultat(s) trouvé(s)</p>")
 
             resultats.forEach(resultat => {
-                bloc_resultats.append("<p><strong>" + resultat.result.artist_names + "</strong> - " + resultat.result.title + "</p>")
+                $.ajax({
+                    method: 'GET',
+                    dataType: 'json',
+                    url: "https://api.lyrics.ovh/v1/" + resultat.result.artist_names + "/" + resultat.result.title,
+                    success: function(jsonResponse, textStatus, jqXHR) {
+                        bloc_resultats.append("<div class='titre'><div class='container-cover'><p class='lyrics'>Paroles disponibles</p><img class='cover-titre' src='" + resultat.result.header_image_url + "'/></div><p><strong>" + resultat.result.artist_names + "</strong> - " + resultat.result.title + "</p></div>")
+                    },
+                    statusCode: {
+                        404: function() {
+                            bloc_resultats.append("<div class='titre'><div class='container-cover'><img class='cover-titre' src='" + resultat.result.header_image_url + "'/></div><p><strong>" + resultat.result.artist_names + "</strong> - " + resultat.result.title + "</p></div>")
+                        }
+                    }
+                });
+
             });
         }
     });

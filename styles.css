@@ -146,6 +146,52 @@ p#explication {
     border: none;
 }
 
+.titre {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    min-height: 300px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    padding-top: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.container-cover {
+    position: relative;
+}
+
+.lyrics {
+    border-radius: 5px 0 5px 0;
+    position: absolute;
+    z-index: 100;
+    margin: 0;
+    background-color: #169b45;
+    padding: 5px;
+    font-size: 12px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.cover-titre {
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+}
+
+.container-cover {
+    width: 200px;
+    height: 200px;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+}
+
+.container-cover:hover {
+    transform: scale(1.02);
+}
+
 
 /* Apparences des boutons clicables */
 
@@ -174,6 +220,13 @@ p#explication {
     display: none;
     margin: 40px;
     text-align: center;
+}
+
+#bloc-resultats {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    justify-content: center;
 }
 
 #bloc-resultats p.res::before {
