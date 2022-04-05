@@ -71,7 +71,23 @@ $(document).on('keypress', function(event) {
 // GESTION DES FAVORIS                                   
 //*********************************************************************************************************************//
 
-$("#btn-favoris").click(function() {
+$("#btn-favoris").click(function() { // FIX: le click listener ne fonctionne pas 
+    console.log("yoooooooo")
     var tmp = $("#recherche").val();
-    localStorage.setItem(tmp, tmp);
+    if(localStorage.getItem($("#recherche").val())){
+        localStorage.removeItem(tmp);
+    }else{
+        localStorage.setItem(tmp, tmp);
+    }
+});
+
+$("#recherche").keyup(function (){
+    if(localStorage.getItem($("#recherche").val())){
+        $("#etoile").attr("src", "images/etoile-pleine.svg");// mettre l'etoile pleine
+        $("#btn-favoris").css("background-color", "#169b45");
+    }else{
+        $("#etoile").attr("src", "images/etoile-vide.svg"); // mettre l'etoile vide
+        $("#btn-favoris").css("background-color", "#919496");
+      
+    };
 });
