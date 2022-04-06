@@ -50,6 +50,10 @@ p.info-vide {
     font-style: italic;
 }
 
+.paroles {
+    display: none;
+}
+
 
 /* Partie En-tête */
 
