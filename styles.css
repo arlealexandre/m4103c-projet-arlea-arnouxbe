@@ -50,10 +50,6 @@ p.info-vide {
     font-style: italic;
 }
 
-.paroles {
-    display: none;
-}
-
 
 /* Partie En-tête */
 
@@ -188,11 +184,16 @@ p#explication {
 .container-cover {
     width: 200px;
     height: 200px;
+}
+
+.container-cover-lyrics {
+    width: 200px;
+    height: 200px;
     transition: all .2s ease-in-out;
     cursor: pointer;
 }
 
-.container-cover:hover {
+.container-cover-lyrics:hover {
     transform: scale(1.02);
 }
 
@@ -222,8 +223,8 @@ p#explication {
 
 #bloc-gif-attente {
     display: none;
-    margin: 40px;
-    text-align: center;
+    justify-content: center;
+    margin: 20px;
 }
 
 #bloc-resultats {
@@ -291,4 +292,44 @@ p#explication {
     #section-favoris {
         flex: 0;
     }
+}
+
+
+/**********************************************************/
+
+
+/* OVERLAY                                                */
+
+
+/**********************************************************/
+
+#container-paroles {
+    margin-top: 20px;
+    display: block;
+    border-bottom: 1px solid #169b45;
+    padding: 20px;
+    background-color: #000;
+    z-index: 10000;
+    height: 400px;
+    display: none;
+    overflow: auto;
+}
+
+#container-paroles-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#container-paroles-header button {
+    background-color: #000;
+    color: white;
+    border: none;
+    transform: scale(2);
+    cursor: pointer;
+}
+
+#paroles {
+    text-align: center;
 }
