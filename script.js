@@ -71,17 +71,23 @@ $(document).on('keypress', function(event) {
 // GESTION DES FAVORIS                                   
 //*********************************************************************************************************************//
 
-$("#btn-favoris").click(function() { // FIX: le click listener ne fonctionne pas 
-    console.log("yoooooooo")
+$("#btn-favoris").click(function() { // ajout / suppresion du favoris
     var tmp = $("#recherche").val();
     if(localStorage.getItem($("#recherche").val())){
         localStorage.removeItem(tmp);
+        supprime_fav($("#"+tmp));
     }else{
         localStorage.setItem(tmp, tmp);
+        ajout_fav(tmp);
     }
+    check_fav();
 });
 
-$("#recherche").keyup(function (){
+$("#recherche").keyup(function (){  // si le champ de recherche est un favoris on colore
+    check_fav()
+});
+
+function check_fav(){
     if(localStorage.getItem($("#recherche").val())){
         $("#etoile").attr("src", "images/etoile-pleine.svg");// mettre l'etoile pleine
         $("#btn-favoris").css("background-color", "#169b45");
@@ -90,4 +96,44 @@ $("#recherche").keyup(function (){
         $("#btn-favoris").css("background-color", "#919496");
       
     };
-});
+
+}
+
+//initialisation de la liste des favoris
+
+function allFavoris() {
+
+    var values = [],
+        keys = Object.keys(localStorage),
+        i = keys.length;
+
+    while ( i-- ) {
+        values.push( localStorage.getItem(keys[i]) );
+    }
+
+    return values;
+}
+
+allFavoris().forEach(e => { ajout_fav(e)});
+
+function supprime_fav(e){
+    localStorage.removeItem(e.id);
+    $(e).remove();
+}
+
+function ajout_fav(e){
+    var tmp =$("<li id="+e+"> <span title=\"Cliquer pour relancer la recherche\" onclick=\"click_fav(" + e 
+    + ")\">"+
+     e+
+     "</span><img src=\"images/croix.svg\" alt=\"Icone pour supprimer le favori\" onclick=\"supprime_fav(" + e 
+     + ")\"width=15 title=\"Cliquer pour supprimer le favori\" ></li>");
+   $("#liste-favoris").append(tmp);
+
+}
+
+function click_fav(e){
+    console.log(e);
+    $("#recherche").val(e.id);
+    recherche();
+    check_fav();
+}
