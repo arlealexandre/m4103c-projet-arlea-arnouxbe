@@ -135,8 +135,10 @@ $("#btn-favoris").click(function() { // ajout / suppresion du favoris
         localStorage.removeItem(tmp);
         supprime_fav($("#" + tmp));
     } else {
-        localStorage.setItem(tmp, tmp);
-        ajout_fav(tmp);
+        if ($("#recherche").val() !== '') {
+            localStorage.setItem(tmp, tmp);
+            ajout_fav(tmp);
+        }
     }
     check_fav();
 });
